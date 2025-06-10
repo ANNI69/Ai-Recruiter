@@ -4,7 +4,7 @@ import { SignedIn, UserButton, useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Sidebar, SidebarContent, SidebarGroupContent, SidebarGroup, SidebarMenu, SidebarGroupLabel, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar";
-import { Calendar, Calendar1, DollarSign, Home, Inbox, List, PlusIcon, Plus, Search, Settings } from "lucide-react"
+import { Calendar, Calendar1, DollarSign, List, PlusIcon, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { IconDashboard } from "@tabler/icons-react";
 
