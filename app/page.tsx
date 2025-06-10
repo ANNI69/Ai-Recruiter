@@ -54,7 +54,6 @@ export default function Home() {
 
             <MobileNavMenu
               isOpen={isMobileMenuOpen}
-              onClose={() => setIsMobileMenuOpen(false)}
             >
               {navItems.map((item, idx) => (
                 <a
