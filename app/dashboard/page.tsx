@@ -4,9 +4,10 @@ import { SignedIn, UserButton, useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Sidebar, SidebarContent, SidebarGroupContent, SidebarGroup, SidebarMenu, SidebarGroupLabel, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar";
-import { Calendar, Calendar1, DollarSign, List, PlusIcon, Settings } from "lucide-react"
+import { Calendar1, DollarSign, List, PlusIcon, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { IconDashboard } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Page() {
     const items = [
@@ -72,10 +73,10 @@ export default function Page() {
                                 {items.map((item) => (
                                     <SidebarMenuItem key={item.title}>
                                         <SidebarMenuButton asChild>
-                                            <a href={item.url} className="flex items-center gap-4 px-4 py-3 text-white hover:bg-black rounded-xl transition-colors">
+                                            <Link href={item.url} className="flex items-center gap-4 px-4 py-3 text-white hover:bg-black rounded-xl transition-colors">
                                                 <item.icon className="w-6 h-6" />
                                                 <span className="text-base font-medium text-4xl">{item.title}</span>
-                                            </a>
+                                            </Link>
                                         </SidebarMenuButton>
                                     </SidebarMenuItem>
                                 ))}
