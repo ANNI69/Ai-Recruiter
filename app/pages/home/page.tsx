@@ -1,3 +1,4 @@
+"use client";
 import { FlipWords } from "@/components/ui/flip-words";
 import Footer from "@/components/ui/footer";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
