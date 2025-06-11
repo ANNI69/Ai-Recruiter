@@ -43,7 +43,7 @@ export default function Home() {
             </div>
           </NavBody>
 
-          <MobileNav className="flex md:hidden">
+          <MobileNav className="rounded-full flex md:hidden">
             <MobileNavHeader>
               <NavbarLogo />
               <MobileNavToggle
@@ -60,7 +60,7 @@ export default function Home() {
                   key={`mobile-link-${idx}`}
                   href={item.link || "#"}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-neutral-600 dark:text-neutral-300"
+                  className="rounded-full relative text-neutral-600 dark:text-neutral-300"
                 >
                   <span className="block">{item.name}</span>
                 </a>

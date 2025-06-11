@@ -21,7 +21,7 @@ export default function Footer() {
                   height={30}
                 />
               </div>
-              <span className="font-bold text-xl">HireFlow Inc</span>
+              <span className="text-blue-500 font-bold text-xl">HireFlow Inc</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Building the future of web development with innovative solutions and cutting-edge technology.
