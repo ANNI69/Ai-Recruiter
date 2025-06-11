@@ -2,10 +2,15 @@ import { FlipWords } from "@/components/ui/flip-words";
 import Footer from "@/components/ui/footer";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import React, { useRef } from "react";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import dynamic from "next/dynamic";
 
 
 export default function HomePage() {
+    const DotLottieReact = dynamic(
+        () => import("@lottiefiles/dotlottie-react").then(mod => mod.DotLottieReact),
+        { ssr: false }
+      );
+      
     const words = ["Ready", "Confident", "Trained", "Smart"];
 
 
