@@ -25,7 +25,7 @@ export default function Component() {
   const [jobDescription, setJobDescription] = useState("")
   const [interviewDuration, setInterviewDuration] = useState("15")
 
-  
+
   const [interviewTypes, setInterviewTypes] = useState({
     technical: false,
     behavioral: true,
@@ -42,10 +42,6 @@ export default function Component() {
   }
 
   const handleGenerateQuestions = async () => {
-    console.log('User object:', user);
-    console.log('User email addresses:', user?.emailAddresses);
-    console.log('Primary email:', user?.primaryEmailAddress);
-
     if (!user) {
       console.error('User not loaded');
       return;
@@ -61,31 +57,14 @@ export default function Component() {
         email: user.primaryEmailAddress?.emailAddress || ''
       }
     }
-    
-    console.log('Interview details being sent:', interviewDetails);
-    
+
     setIsGenerating(true)
     try {
-      const response = await axios.post('/api/ai-model', interviewDetails);
-      console.log('API Response:', response.data);
-      
-      // Get the content and clean it up
+      const response = await axios.post('http://localhost:8000/api/ai-model/generate-questions', interviewDetails);
       const content = response.data.choices[0].message.content;
-      console.log('Raw content:', content);
-      
-      // Remove markdown code block formatting if present
       const cleanedContent = content.replace(/```json\n?|\n?```/g, '').trim();
-      console.log('Cleaned content:', cleanedContent);
-      
-      // Parse the cleaned content as JSON
       const parsedContent = JSON.parse(cleanedContent);
-      console.log('Parsed content:', parsedContent);
-      
-      // Extract questions from the parsed content
-      const generatedQuestions = parsedContent.questions.map((q: any) => q.question);
-      console.log('Generated questions:', generatedQuestions);
-      
-      setQuestions(generatedQuestions);
+      setQuestions(parsedContent.questions);
       setShowQuestions(true);
     } catch (error) {
       console.error('Error generating questions:', error);
@@ -99,7 +78,6 @@ export default function Component() {
 
   return (
     <div>
-      {/* Header */}
       <header className="">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div>
@@ -111,14 +89,13 @@ export default function Component() {
             <p className="text-sm text-gray-200">AI-Driven Interviews, Hassle-Free Hiring</p>
           </div>
           <div className="flex items-center gap-4">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full flex items-center justify-center">
               <UserButton />
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-screen mt-6">
         <div>
           <h1 className="text-3xl font-bold text-white">Create A Interview</h1>
@@ -129,15 +106,24 @@ export default function Component() {
           <div className="mt-6">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-semibold text-white">Generated Questions</h2>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setShowQuestions(false)}
                 className="text-white"
               >
                 Create New Interview
               </Button>
             </div>
-            <AIResult questions={questions} />
+            <div className="mt-6 space-y-4">
+              {questions.map((question, index) => (
+                <div key={index} className="bg-gray-800 p-4 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <span className="text-indigo-400 font-medium">{index + 1}.</span>
+                    <span style={{ color: 'white', fontSize: '16px' }}>{question}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <Card className="mt-6">
@@ -150,9 +136,9 @@ export default function Component() {
                 <Label htmlFor="jobPosition" className="text-sm font-medium text-white">
                   Job Position
                 </Label>
-                <Input 
-                  id="jobPosition" 
-                  placeholder="e.g. Senior Frontend Developer" 
+                <Input
+                  id="jobPosition"
+                  placeholder="e.g. Senior Frontend Developer"
                   className="w-full"
                   value={jobPosition}
                   onChange={(e) => setJobPosition(e.target.value)}
@@ -178,7 +164,7 @@ export default function Component() {
                 <Label htmlFor="duration" className="text-sm font-medium text-white">
                   Interview Duration
                 </Label>
-                <Select 
+                <Select
                   defaultValue="15"
                   value={interviewDuration}
                   onValueChange={setInterviewDuration}
@@ -308,24 +294,4 @@ export default function Component() {
       </main>
     </div>
   )
-}
-
-async function AiAgent({ interviewDetails }: { interviewDetails: any }) {
-  try {
-    const response = await axios.post('/api/ai-model', interviewDetails);
-    const { data } = response;
-    
-    return (
-      <div>
-        {data.choices[0].message.content}
-      </div>
-    );
-  } catch (error) {
-    console.error('Error generating interview questions:', error);
-    return (
-      <div className="text-red-500">
-        Error generating questions. Please try again.
-      </div>
-    );
-  }
 }

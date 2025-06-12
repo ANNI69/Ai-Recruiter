@@ -48,7 +48,7 @@ export default function ProfilePage() {
                         <p className="text-sm text-gray-200">AI-Driven Interviews, Hassle-Free Hiring</p>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center">
                             <UserButton />
                         </div>
                     </div>

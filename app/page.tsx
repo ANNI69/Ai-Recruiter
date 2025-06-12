@@ -11,17 +11,20 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState, useEffect } from "react";
 import HomePage from "./pages/home/page";
-import { useAuth } from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+// import { useAppContext } from "@/context/AppContext";
 
 export default function Home() {
+  const { user } = useUser();
   const { isLoaded, userId } = useAuth();
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // const { isAuthenticated, setIsAuthenticated } = useAppContext();
 
   useEffect(() => {
-    if (isLoaded && userId) {
-      router.push("/dashboard");
+    if (user) {
+      router.push("/dashboard/profile");
     }
   }, [isLoaded, userId, router]);
 
@@ -34,54 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative w-screen">
-        <Navbar>
-          <NavBody className="hidden md:flex">
-            <NavbarLogo />
-            <div className="flex items-center gap-4">
-              <NavbarButton className="rounded-4xl" href="/auth/sign-in" variant="primary">Login</NavbarButton>
-            </div>
-          </NavBody>
-
-          <MobileNav className="rounded-full flex md:hidden">
-            <MobileNavHeader>
-              <NavbarLogo />
-              <MobileNavToggle
-                isOpen={isMobileMenuOpen}
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
-            </MobileNavHeader>
-
-            <MobileNavMenu
-              isOpen={isMobileMenuOpen}
-            >
-              {navItems.map((item, idx) => (
-                <a
-                  key={`mobile-link-${idx}`}
-                  href={item.link || "#"}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="rounded-full relative text-neutral-600 dark:text-neutral-300"
-                >
-                  <span className="block">{item.name}</span>
-                </a>
-              ))}
-              <div className="flex w-full flex-col gap-4">
-                <NavbarButton
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  href="/auth/sign-in"
-                  variant="primary"
-                  className="w-full"
-                >
-                  Login
-                </NavbarButton>
-              </div>
-            </MobileNavMenu>
-          </MobileNav>
-        </Navbar>
-        <div className="px-4 sm:px-6 md:px-8">
-          <HomePage />
-        </div>
-      </div>
+      <HomePage />
     </>
   );
 }
