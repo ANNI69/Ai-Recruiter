@@ -17,7 +17,7 @@ export default function HomePage() {
 
     return (
         <>
-            <div className=" text-shadow-white mx-auto max-w-screen h-[20vh] px-4 sm:px-16 lg:px-40 py-10 md:py-20 text-xl sm:text-8xl font-bold mt-8 justify-center items-center">
+            <div className=" text-shadow-white mx-auto max-w-screen h-[100vh] px-4 sm:px-16 lg:px-40 py-10 md:py-20 text-xl sm:text-8xl font-bold mt-8 justify-center items-center">
                 <div className="mt-16 md:mt-32">
                     The best way to Practice For Interview
                     <PointerHighlight>

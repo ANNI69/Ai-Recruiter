@@ -42,7 +42,7 @@ export default function ProfilePage() {
                     <div>
                         <h1 className="text-xl font-semibold text-white">Welcome back,
                             <span>
-                                {" " + user?.firstName}
+                                {" " + user?.fullName}
                             </span>
                             !</h1>
                         <p className="text-sm text-gray-200">AI-Driven Interviews, Hassle-Free Hiring</p>
