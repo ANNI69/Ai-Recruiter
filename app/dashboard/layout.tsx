@@ -67,11 +67,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                     <Link href={'/dashboard/create-interview'}>
                                         <Button
                                             variant='secondary'
-                                            className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-md transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(0,118,255,0.39)] hover:shadow-[0_6px_20px_rgba(0,118,255,0.23)] hover:scale-[1.02] active:scale-[0.98]"
+                                            className="w-full text-black bg-white hover:bg-blue-400 transition-colors duration-200 py-6"
                                         >
-                                            <span className="text-base tracking-wide"> New Interview</span>
-                                            <span className="text-xl font-light">
-                                                <PlusIcon />
+                                            <span className="text-lg font-medium tracking-wide">New Interview</span>
+                                            <span className="text-2xl ml-3">
+                                                <PlusIcon/>
                                             </span>
                                         </Button>
                                     </Link>
@@ -81,9 +81,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                         {items.map((item) => (
                                             <SidebarMenuItem key={item.title}>
                                                 <SidebarMenuButton asChild>
-                                                    <Link href={item.url} className="flex items-center gap-4 px-4 py-3 text-white hover:bg-black rounded-xl transition-colors">
+                                                    <Link href={item.url} className="h-4flex items-center gap-2 px-4 py-3 text-white hover:bg-black rounded-xl transition-colors">
                                                         <item.icon className="w-6 h-6" />
-                                                        <span className="font-semibold">{item.title}</span>
+                                                        <span className="">{item.title}</span>
                                                     </Link>
                                                 </SidebarMenuButton>
                                             </SidebarMenuItem>
