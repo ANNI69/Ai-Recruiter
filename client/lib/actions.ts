@@ -1,4 +1,4 @@
-/* eslint-disable rule-name */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs"
