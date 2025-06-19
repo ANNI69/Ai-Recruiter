@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Shield, Zap, Users } from "lucide-react"
-import Link from "next/link"
 import { CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { useRouter } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
@@ -18,7 +17,6 @@ import {
     Mail,
     Phone,
     MapPin,
-    Menu,
 } from "lucide-react"
 import { useEffect } from "react"
 
@@ -290,7 +288,7 @@ export default function Homepage() {
                                     </div>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-gray-300 mb-4">"{testimonial.content}"</p>
+                                    <p className="text-gray-300 mb-4">{testimonial.content}</p>
                                     <div className="flex items-center space-x-3">
                                         <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center">
                                             <Users className="w-5 h-5 text-gray-400" />
@@ -318,7 +316,7 @@ export default function Homepage() {
                             Simple, transparent pricing
                         </h2>
                         <p className="text-xl text-gray-400 max-w-[800px] mx-auto">
-                            Choose the plan that's right for your team. All plans include a 14-day free trial.
+                            Choose the plan that suit for your team. All plans include a 3 credit trial.
                         </p>
                     </div>
 

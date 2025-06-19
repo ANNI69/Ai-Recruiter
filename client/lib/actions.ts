@@ -1,3 +1,4 @@
+/* eslint-disable rule-name */
 "use server"
 
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs"

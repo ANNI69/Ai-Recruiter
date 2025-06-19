@@ -33,7 +33,7 @@ export default async function Home() {
           <div className="w-8 h-8 bg-green-500 rounded-full"></div>
         </div>
         <h1 className="text-3xl font-bold mb-2 text-white">Welcome back!</h1>
-        <p className="text-gray-400 mb-6">You're successfully signed in as:</p>
+        <p className="text-gray-400 mb-6">You are successfully signed in as:</p>
         <div className="bg-gray-900/50 rounded-lg p-4 mb-6">
           <p className="text-white font-medium">{user.email}</p>
         </div>
