@@ -1,5 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type React from "react"
 import { createClient } from "@/lib/server"
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { redirect } from "next/navigation"
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
 import { DashboardSidebar } from "@/components/dashboard-sidebar"

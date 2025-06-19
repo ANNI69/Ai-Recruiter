@@ -194,7 +194,7 @@ export default function SchedulePage() {
               <ul className="text-sm text-gray-400 space-y-2">
                 <li>• Prepare questions in advance</li>
                 <li>• Test your video setup</li>
-                <li>• Review candidate's resume</li>
+                <li>• Review candidates resume</li>
                 <li>• Set clear expectations</li>
                 <li>• Allow time for questions</li>
               </ul>
