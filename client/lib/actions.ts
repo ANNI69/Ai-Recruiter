@@ -7,7 +7,7 @@ import { redirect } from "next/navigation"
 
 // Update the signIn function to handle redirects properly
 export async function signIn(prevState: any, formData: FormData) {
-  // Check if formData is valid
+  // Check if formData is validw
   if (!formData) {
     return { error: "Form data is missing" }
   }
@@ -125,5 +125,5 @@ export async function signOut() {
   const supabase = createServerActionClient({ cookies: () => cookieStore })
 
   await supabase.auth.signOut()
-  redirect("/auth/login")
+  redirect("/")
 }
