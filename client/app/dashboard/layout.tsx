@@ -8,6 +8,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
 import { DashboardSidebar } from "@/components/dashboard-sidebar"
 import { DashboardHeader } from "@/components/dashboard-header"
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pageNames: Record<string, string> = {
   "/dashboard": "Dashboard",
   "/dashboard/schedule": "Schedule Interview",
